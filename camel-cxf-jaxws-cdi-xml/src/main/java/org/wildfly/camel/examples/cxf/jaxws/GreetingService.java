@@ -1,6 +1,6 @@
 /*
  * #%L
- * Wildfly Camel :: Example :: Camel CXF JAX-WS CXF CDI XML-Configuration
+ * Wildfly Camel :: Example :: Camel CXF JAX-WS CDI XML
  * %%
  * Copyright (C) 2013 - 2016 RedHat
  * %%

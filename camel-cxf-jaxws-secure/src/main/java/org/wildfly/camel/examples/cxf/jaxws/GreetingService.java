@@ -1,6 +1,6 @@
 /*
  * #%L
- * Wildfly Camel :: Example :: Camel CXF JAX-WS CDI XML
+ * Wildfly Camel :: Example :: Camel CXF JAX-WS Secure
  * %%
  * Copyright (C) 2013 - 2016 RedHat
  * %%
@@ -19,19 +19,12 @@
  */
 package org.wildfly.camel.examples.cxf.jaxws;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
 
-public class GreetingsProcessor implements Processor {
-    /**
-     * Simple processor to return a response from the web service client invocation.
-     *
-     * The original @WebParam values are contained within the exchange body, and these are used to build
-     * a 'greetings' response.
-     */
-    @Override
-    public void process(Exchange exchange) throws Exception {
-        Object[] args = exchange.getIn().getBody(Object[].class);
-        exchange.getOut().setBody(args[0] + " " + args[1]);
-    }
+@WebService(name = "greeting")
+public interface GreetingService {
+    @WebMethod(operationName = "greet", action = "urn:greet")
+    String greet(@WebParam(name = "message") String message, @WebParam(name = "name") String name);
 }

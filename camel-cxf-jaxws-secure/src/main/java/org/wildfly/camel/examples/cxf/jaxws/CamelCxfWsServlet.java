@@ -1,6 +1,6 @@
 /*
  * #%L
- * Wildfly Camel :: Example :: Camel CXF JAX-WS CXF CDI XML
+ * Wildfly Camel :: Example :: Camel CXF JAX-WS Secure
  * %%
  * Copyright (C) 2013 - 2016 RedHat
  * %%
@@ -21,7 +21,7 @@ package org.wildfly.camel.examples.cxf.jaxws;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +35,7 @@ import org.apache.camel.ProducerTemplate;
 @WebServlet(name = "HttpServiceServlet", urlPatterns = { "/cxf/*" }, loadOnStartup = 1)
 public class CamelCxfWsServlet extends HttpServlet {
 
-    @Inject
+    @Resource(name = "java:jboss/camel/context/cxfws-security-camel-context")
     private CamelContext camelContext;
 
     @Override

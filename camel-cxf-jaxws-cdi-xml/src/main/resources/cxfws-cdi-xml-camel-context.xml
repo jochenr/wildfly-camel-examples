@@ -17,23 +17,27 @@
   #L%
   -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:cxf="http://camel.apache.org/schema/cxf"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd         http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans
+                              http://www.springframework.org/schema/beans/spring-beans.xsd
+                              http://camel.apache.org/schema/spring
+                              http://camel.apache.org/schema/spring/camel-spring.xsd">
     <camelContext id="cxfws-cdi-xml-camel-context" xmlns="http://camel.apache.org/schema/spring">
         <!--
-         This route defines a CXF producer endpoint which invokes a greeting web service.
+             This route defines a CXF producer endpoint which invokes a greeting web service.
 
-         CamelCxfWsServlet sends the required message and name parameters to the service by populating them
-         within the message exchange body.
+             CamelCxfWsServlet sends the required message and name parameters to the service by populating them
+             within the message exchange body.
         -->
         <route id="route1">
             <from id="from1" uri="direct:start"/>
             <to id="to1" uri="cxf:bean:cxfProducer"/>
         </route>
-        <!--
-        This route defines a CXF consumer endpoint which handles requests made to the greeting web service.
 
-        GreetingsProcessor constructs a String greeting response to return back to the JAX-WS client.
+        <!--
+            This route defines a CXF consumer endpoint which handles requests made to the greeting web service.
+
+            GreetingsProcessor constructs a String greeting response to return back to the JAX-WS client.
         -->
         <route id="route2">
             <from id="from2" uri="cxf:bean:cxfConsumer"/>

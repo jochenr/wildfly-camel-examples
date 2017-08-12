@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   #%L
-  Wildfly Camel :: Example :: Camel CXF JAX-WS CDI XML
+  Wildfly Camel :: Example :: Camel CXF
   %%
   Copyright (C) 2013 - 2014 RedHat
   %%
@@ -20,8 +20,7 @@
   -->
 
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -30,9 +29,9 @@
         <version>4.9.0-SNAPSHOT</version>
     </parent>
 
-    <name>Wildfly Camel :: Example :: Camel CXF JAX-WS CDI XML</name>
+    <name>Wildfly Camel :: Example :: Camel CXF JAX-WS Secure</name>
 
-    <artifactId>example-camel-cxf-jaxws-cdi-xml</artifactId>
+    <artifactId>example-camel-cxf-jaxws-secure</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
@@ -40,20 +39,9 @@
         <!-- Provided -->
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-cdi</artifactId>
+            <artifactId>camel-core</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-cxf</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
             <artifactId>jboss-ejb-api_3.2_spec</artifactId>

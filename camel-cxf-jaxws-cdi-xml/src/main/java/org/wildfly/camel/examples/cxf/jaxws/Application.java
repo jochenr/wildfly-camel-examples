@@ -1,6 +1,6 @@
 /*
  * #%L
- * Wildfly Camel :: Example :: Camel CXF JAX-WS CXF CDI XML-Configuration
+ * Wildfly Camel :: Example :: Camel CXF JAX-WS CDI XML
  * %%
  * Copyright (C) 2013 - 2014 RedHat
  * %%
@@ -33,7 +33,6 @@ import org.apache.camel.component.cxf.CxfEndpoint;
 /**
  *
  * This example imports a Camel XML configuration file from the classpath using the {@code ImportResource} annotation.
- * <p>
  *
  * The imported Camel XML file configures a Camel context that references CDI beans declared in this class.
  *
@@ -48,13 +47,13 @@ public class Application {
 
     @Named("greetingsProcessor")
     @Produces
-    public Processor produceGreetingsProcessor() {
+    public Processor createGreetingsProcessor() {
         return new GreetingsProcessor();
     }
 
     @Named("cxfConsumer")
     @Produces
-    public CxfEndpoint produceCxfConsumer() {
+    public CxfEndpoint createCxfConsumer() {
         CxfComponent cxfComponent = new CxfComponent(this.context);
         CxfEndpoint cxfFromEndpoint = new CxfEndpoint("http://localhost:8080/webservices/greeting-cdi-xml", cxfComponent);
         cxfFromEndpoint.setServiceClass(GreetingService.class);
@@ -63,11 +62,10 @@ public class Application {
 
     @Named("cxfProducer")
     @Produces
-    public CxfEndpoint produceCxfProducer() {
+    public CxfEndpoint createCxfProducer() {
         CxfComponent cxfComponent = new CxfComponent(this.context);
         CxfEndpoint cxfToEndpoint = new CxfEndpoint("http://localhost:8080/webservices/greeting-cdi-xml", cxfComponent);
         cxfToEndpoint.setServiceClass(GreetingService.class);
         return cxfToEndpoint;
     }
-
 }
